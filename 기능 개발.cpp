@@ -3,17 +3,15 @@
 using namespace std;
 vector<int> solution(vector<int> progresses, vector<int> speeds) {
     vector<int> answer;
-    int idx = 0;
-    while (idx < progresses.size()) {
-        int cnt = 0;
-        for (int i = idx; i < progresses.size(); i++) progresses[i] += speeds[i];
-        while(progresses[idx] >= 100){
-            cnt++; idx++;
-            if (idx >= progresses.size())
-                break;
-        }
-        if (cnt != 0)
-            answer.push_back(cnt);
+    int day, mxday = 0;
+    for (int i = 0; i < progresses.size(); i++) {
+        day = (99 - progresses[i]) / speeds[i] + 1;
+        if (answer.empty() || mxday < day)
+            answer.push_back(1);
+        else
+            ++answer.back();
+        if (mxday < day)
+            mxday = day;
     }
     return answer;
 }
