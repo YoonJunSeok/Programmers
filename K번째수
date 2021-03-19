@@ -1,0 +1,21 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+vector<int> solution(vector<int> array, vector<vector<int>> commands) {
+    vector<int> answer;
+    for (int h = 0; h < commands.size(); h++){
+        int i = commands[h][0];
+        int j = commands[h][1];
+        int k = commands[h][2];
+        int arr[j-i+1];
+        int idx = 0;
+        for (int n = i - 1; n < j; n++){
+            arr[idx] = array[n];
+            idx++;
+        }
+        sort(arr, arr+(j-i+1));
+        answer.push_back(arr[k-1]);
+    }
+    return answer;
+}
