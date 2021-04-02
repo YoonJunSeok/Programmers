@@ -23,7 +23,7 @@ void nqueen(int cur){
         visitedRU[i+cur] = 0;
         visitedRD[cur-i+tn-1] = 0;
     }
-}
+} 
 int solution(int n) {
     tn = n;
     nqueen(0);
