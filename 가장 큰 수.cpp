@@ -10,5 +10,5 @@ string solution(vector<int> numbers) {
     if (str.at(0) == "0") return "0";
     for (int i = 0; i < str.size(); i++)
         answer += str[i];
-    return answer;
+    return answer; 
 }
